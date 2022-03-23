@@ -1,0 +1,44 @@
+<header class="m-0">
+    <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-primary bg-white border-bottom box-shadow">
+        <div class="container justify-content-between">
+            <a class="navbar-brand text-info col-sm-2" asp-controller="Home" asp-action="Index">
+                <a class="nav-link text-primary" routerLink="/home" routerLinkActive="active">
+                    <img src="../../assets/s2dent.png" class="img-fluid" />
+                </a>
+            </a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target=".navbar-collapse"
+                aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
+                <ul class="navbar-nav flex-grow-1">
+                    <li class="nav-item">
+                        <a class="nav-link text-primary" routerLink="/home" routerLinkActive="active">Начало</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link text-primary" routerLink="/team" routerLinkActive="active">Екип</a>
+                    </li>
+                    <li>
+                        <a class="nav-link text-primary" routerLink="/services" routerLinkActive="active">Лечения</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link text-primary" routerLink="/news" routerLinkActive="active">Новини</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link text-primary" routerLink="/testimonials" routerLinkActive="active">Мнения</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link text-primary" routerLink="/gallery" routerLinkActive="active">Галерия</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link text-primary" routerLink="/contacts" routerLinkActive="active">Контакти</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
+            <a *ngIf="!appStore.isLoggedIn" class="btn btn-outline-info" routerLink="/login" routerLinkActive="active">Вход</a>
+            <button *ngIf="appStore.isLoggedIn" class="btn btn-outline-info" (click)="logOut()">Изход</button>
+        </div>
+    </nav>
+</header>
