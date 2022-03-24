@@ -1,7 +1,7 @@
 <header class="m-0">
     <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-primary bg-white border-bottom box-shadow">
         <div class="container justify-content-between">
-            <a class="navbar-brand text-info col-sm-2" asp-controller="Home" asp-action="Index">
+            <a class="navbar-brand text-info col-sm-2">
                 <a class="nav-link text-primary" routerLink="/home" routerLinkActive="active">
                     <img src="../../assets/s2dent.png" class="img-fluid" />
                 </a>
@@ -37,8 +37,12 @@
             </div>
         </div>
         <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
-            <a *ngIf="appStore.isAuthenticated" class="btn btn-outline-secondary" routerLink="/login" routerLinkActive="active">Вход</a>
-            <button *ngIf="!appStore.isAuthenticated" class="btn btn-outline-info" (click)="logOut()">Изход</button>
+            <a *ngIf="!appStore.isLoggedIn" class="btn btn-outline-secondary btn-sm" routerLink="/login" routerLinkActive="active">Вход</a>
+            <button *ngIf="appStore.isLoggedIn" class="btn btn-outline-info" (click)="logOut()">Изход</button>
         </div>
+        <select class="selectpicker" name="language" (onchange)="changeLanguage(123)">
+          <option value="en"><i class="fa fa-flag-gb"></i></option>
+          <option value="bg">Български</option>
+      </select>
     </nav>
 </header>

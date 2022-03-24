@@ -1,51 +1,33 @@
-import { Injectable, OnDestroy, OnInit } from "@angular/core";
-import { GoogleLoginProvider, SocialAuthService } from "angularx-social-login";
-import { Observable, Subject } from "rxjs";
-import { AppStore } from "../app-store";
-import { User } from "../Models/modelInterfaces";
+import { Injectable, OnInit } from '@angular/core';
+import { GoogleLoginProvider, SocialAuthService } from 'angularx-social-login';
+import { User } from '../Models/modelInterfaces';
+import { AppStore } from '../store/appStore';
 
 @Injectable()
-export class AuthService implements OnInit {
-    private logSuccess: Subject<boolean> = new Subject<boolean>();
-    private logoutSuccess: Subject<boolean> = new Subject<boolean>();
+export class AuthService {
 
-    constructor(private appStore: AppStore, private googleAuth: SocialAuthService) {
-    }
+  constructor(private googleAuth: SocialAuthService, public appStore: AppStore) {}
 
-    public ngOnInit(): void {
-        this.logSuccess = new Subject<boolean>();
-        this.logoutSuccess = new Subject<boolean>();
-    }
+  public loginWithGoogle(): boolean {
+    this.googleAuth.signIn(GoogleLoginProvider.PROVIDER_ID)
+      .then((user) => {
+        this.appStore.setUser(user as User);
+        return true;
+      })
+      .catch((error) => console.log(error));
 
-    public loginWithGoogle(): Observable<boolean> {
-       this.googleAuth.signIn(GoogleLoginProvider.PROVIDER_ID)
-        .then((user) => {
-            this.appStore.setUser(user as User);
-            this.logSuccess.next(true);
-        })
-        .catch((error) => {
-            console.log(error);
-            this.logSuccess.next(false);
-        })
+      return false;
+  }
 
-        return this.logSuccess.asObservable();
-    }
+  public logOutOfGoogle() {
+    this.googleAuth.signOut()
+      .then(() => {
+        this.appStore.setUser(undefined);
+      })
+      .catch((error) => console.log(error));
+  }
 
-    public logOutOfGoogle(): Observable<boolean> {
-        this.googleAuth.signOut()
-            .then(() => {
-                this.logSuccess.next(true);
-                this.appStore.user = undefined;
-            })
-            .catch((error) => {
-                console.log(error);
-                this.logoutSuccess.next(false);
-            });
-        
-        return this.logoutSuccess;
-    }
-
-    public loginWithForm(email: string, password: string) {
-        console.log(email, password);
-    }
+  public loginWithForm(email: string, password: string) {
+    console.log(email, password);
+  }
 }

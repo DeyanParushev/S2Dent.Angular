@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
-import { AppStore } from '../app-store';
 import { User } from '../Models/modelInterfaces';
+import { AppStore } from '../store/appStore';
 import { AuthService } from '../utils/authService';
 
 @Component({
@@ -13,10 +13,10 @@ import { AuthService } from '../utils/authService';
 export class AuthComponent implements OnInit {
   public user?: User;
   public loginForm: FormGroup = new FormGroup({});
+  public appStore = AppStore;
 
   constructor(
     private router: Router,
-    public appStore: AppStore,
     private authService: AuthService) { }
 
   public ngOnInit(): void {
@@ -25,12 +25,9 @@ export class AuthComponent implements OnInit {
   }
 
   public login() {
-    this.authService.loginWithGoogle()
-      .subscribe((loggedIn) => {
-        if(loggedIn) {
-          this.router.navigate(["home"]);
-        }
-      })
+    if(this.authService.loginWithGoogle()) {
+      this.router.navigate(["home"]);
+    }
   }
 
   public loginWithForm() {

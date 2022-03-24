@@ -15,10 +15,12 @@ import { NewsComponent } from './news/news.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { FooterComponent } from './footer/footer.component';
 import { SocialLoginModule, GoogleLoginProvider, SocialAuthServiceConfig } from 'angularx-social-login';
-import { environment } from 'src/environments/environment';
+import { environment } from '../environments/environment';
 import { AuthComponent } from './auth-component/authComponent';
-import { AppStore } from './app-store';
 import { AuthService } from './utils/authService';
+import { MobxAngularModule } from "mobx-angular";
+import { AppStore } from './store/appStore';
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 
 const clientId = environment.clientId;
 
@@ -42,6 +44,8 @@ const clientId = environment.clientId;
     AppRoutingModule,
     ReactiveFormsModule,
     SocialLoginModule,
+    MobxAngularModule,
+    FontAwesomeModule,
   ],
   providers: [
     {
@@ -56,9 +60,8 @@ const clientId = environment.clientId;
         ],
       } as SocialAuthServiceConfig,
     },
-    AppStore,
     AuthService,
-    
+    AppStore
   ],
   bootstrap: [AppComponent]
 })
