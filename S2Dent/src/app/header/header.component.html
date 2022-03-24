@@ -11,33 +11,33 @@
                 <span class="navbar-toggler-icon"></span>
             </button>
             <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
-                <ul class="navbar-nav flex-grow-1">
+                <ul class="nav nav-tabs nav-fill">
                     <li class="nav-item">
-                        <a class="nav-link text-primary" routerLink="/home" routerLinkActive="active">Начало</a>
+                        <a class="nav-link link-secondary" routerLink="/home" routerLinkActive="active">Начало</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link text-primary" routerLink="/team" routerLinkActive="active">Екип</a>
+                        <a class="nav-link link-secondary" routerLink="/team" routerLinkActive="active">Екип</a>
                     </li>
                     <li>
-                        <a class="nav-link text-primary" routerLink="/services" routerLinkActive="active">Лечения</a>
+                        <a class="nav-link link-secondary" routerLink="/services" routerLinkActive="active">Лечения</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link text-primary" routerLink="/news" routerLinkActive="active">Новини</a>
+                        <a class="nav-link link-secondary" routerLink="/news" routerLinkActive="active">Новини</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link text-primary" routerLink="/testimonials" routerLinkActive="active">Мнения</a>
+                        <a class="nav-link link-secondary" routerLink="/testimonials" routerLinkActive="active">Мнения</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link text-primary" routerLink="/gallery" routerLinkActive="active">Галерия</a>
+                        <a class="nav-link link-secondary" routerLink="/gallery" routerLinkActive="active">Галерия</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link text-primary" routerLink="/contacts" routerLinkActive="active">Контакти</a>
+                        <a class="nav-link link-secondary" routerLink="/contacts" routerLinkActive="active">Контакти</a>
                     </li>
                 </ul>
             </div>
         </div>
         <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
-            <a *ngIf="!appStore.isLoggedIn" class="btn btn-outline-info" routerLink="/login" routerLinkActive="active">Вход</a>
+            <a *ngIf="!appStore.isLoggedIn" class="btn btn-outline-secondary" routerLink="/login" routerLinkActive="active">Вход</a>
             <button *ngIf="appStore.isLoggedIn" class="btn btn-outline-info" (click)="logOut()">Изход</button>
         </div>
     </nav>
