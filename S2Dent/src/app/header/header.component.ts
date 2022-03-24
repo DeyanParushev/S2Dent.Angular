@@ -8,10 +8,10 @@ import { AppStore } from "app/store/appStore"
   styleUrls: ['./header.component.css']
 })
 export class HeaderComponent implements OnInit {
-
   constructor(private authService: AuthService, public appStore: AppStore) { }
 
-  ngOnInit(): void {
+  public ngOnInit(): void {
+
   }
 
   public logOut() {
