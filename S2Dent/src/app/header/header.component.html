@@ -37,8 +37,8 @@
             </div>
         </div>
         <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
-            <a *ngIf="!appStore.isLoggedIn" class="btn btn-outline-secondary" routerLink="/login" routerLinkActive="active">Вход</a>
-            <button *ngIf="appStore.isLoggedIn" class="btn btn-outline-info" (click)="logOut()">Изход</button>
+            <a *ngIf="appStore.isAuthenticated" class="btn btn-outline-secondary" routerLink="/login" routerLinkActive="active">Вход</a>
+            <button *ngIf="!appStore.isAuthenticated" class="btn btn-outline-info" (click)="logOut()">Изход</button>
         </div>
     </nav>
 </header>

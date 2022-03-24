@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
-import { SocialAuthService, GoogleLoginProvider } from 'angularx-social-login';
 import { AppStore } from '../app-store';
 import { User } from '../Models/modelInterfaces';
 import { AuthService } from '../utils/authService';
@@ -16,12 +15,12 @@ export class AuthComponent implements OnInit {
   public loginForm: FormGroup = new FormGroup({});
 
   constructor(
-    private router: Router, 
+    private router: Router,
     public appStore: AppStore,
     private authService: AuthService) { }
 
   public ngOnInit(): void {
-    
+
     this.initForm();
   }
 
@@ -33,7 +32,7 @@ export class AuthComponent implements OnInit {
         }
       })
   }
-  
+
   public loginWithForm() {
     console.log(this.loginForm.controls['email'].value);
     console.log(this.loginForm.controls['password'].value);
