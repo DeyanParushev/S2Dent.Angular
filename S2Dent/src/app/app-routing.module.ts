@@ -8,6 +8,7 @@ import { NewsComponent } from './news/news.component';
 import { ServicesComponent } from './dentalServices/services.component';
 import { TeamComponent } from './team/team.component';
 import { TestimonialsComponent } from './testimonials/testimonials.component';
+import { AuthResolverService } from './auth-component/authResolverService';
 
 const routes: Routes = [
   { path: "home", component: HomeComponent },
@@ -18,7 +19,7 @@ const routes: Routes = [
   { path: "contacts", component: ContactsComponent },
   { path: "services", component: ServicesComponent },
   { path: "register", component: AuthComponent },
-  { path: "login", component: AuthComponent },
+  { path: "login", component: AuthComponent, resolve: { user: AuthResolverService } },
   { path: "logout", component: AuthComponent },
 ];
 
