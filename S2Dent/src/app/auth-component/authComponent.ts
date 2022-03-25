@@ -1,5 +1,5 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
+import { NavigationCancel, NavigationEnd, NavigationError, NavigationStart, Router } from '@angular/router';
 import { AppStore } from '../store/appStore';
 import { AuthService } from '../services/authService';
 import { Subscription } from 'rxjs';
@@ -11,6 +11,7 @@ import { Subscription } from 'rxjs';
 })
 export class AuthComponent implements OnInit, OnDestroy {
   public appStore = AppStore;
+  public loginInProgress = false;
   private subscriptions: Subscription[];
 
 
@@ -19,12 +20,15 @@ export class AuthComponent implements OnInit, OnDestroy {
   }
 
   public ngOnInit(): void {
-    const loginSuccess = this.authService.loginWithGoogle()
-      .subscribe(() => {
-        this.router.navigate(['home']);
-      });
+    this.subscriptions.push(this.router.events.subscribe(event => {
+      if(event instanceof NavigationStart) {
+        this.loginInProgress = true;
+      }
 
-    this.subscriptions.push(loginSuccess);
+      if(event instanceof NavigationEnd || event instanceof NavigationCancel || event instanceof NavigationError) {
+        this.loginInProgress = false;
+      }
+    }));
   }
 
   public ngOnDestroy(): void {
@@ -32,6 +36,8 @@ export class AuthComponent implements OnInit, OnDestroy {
   }
 
   public login() {
-    this.authService.loginWithGoogle();
+    // this.loginInProgress = true;
+    // this.authService.loginWithGoogle();
+    // this.loginInProgress = false;
   }
 }

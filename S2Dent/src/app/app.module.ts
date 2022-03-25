@@ -22,6 +22,8 @@ import { MobxAngularModule } from "mobx-angular";
 import { AppStore } from './store/appStore';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { MatProgressSpinnerModule } from "@angular/material/progress-spinner"
+import { AuthResolverService } from './auth-component/authResolverService';
 
 const clientId = environment.clientId;
 
@@ -48,6 +50,7 @@ const clientId = environment.clientId;
     MobxAngularModule,
     FontAwesomeModule,
     BrowserAnimationsModule,
+    MatProgressSpinnerModule,
   ],
   providers: [
     {
@@ -63,7 +66,8 @@ const clientId = environment.clientId;
       } as SocialAuthServiceConfig,
     },
     AuthService,
-    AppStore
+    AppStore,
+    AuthResolverService
   ],
   bootstrap: [AppComponent]
 })

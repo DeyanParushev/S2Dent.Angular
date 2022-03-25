@@ -7,9 +7,11 @@ import { AppStore } from '../store/appStore';
 @Injectable()
 export class AuthService {
   private logSuccess: Subject<boolean>;
+  private userSubject: Subject<User>;
 
   constructor(private googleAuth: SocialAuthService, public appStore: AppStore) {
     this.logSuccess = new Subject<boolean>();
+    this.userSubject = new Subject<User>();
   }
 
   public loginWithGoogle(): Observable<boolean> {
@@ -23,6 +25,15 @@ export class AuthService {
       });
 
       return this.logSuccess.asObservable();
+  }
+
+  public googleLogin(): Observable<User> {
+    this.googleAuth.signIn(GoogleLoginProvider.PROVIDER_ID)
+      .then((user) => {
+        this.userSubject.next(user as User);
+      })
+
+    return this.userSubject.asObservable();
   }
 
   public logOutOfGoogle() {
