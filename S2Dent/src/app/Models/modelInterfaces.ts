@@ -54,3 +54,8 @@ export interface UserState {
   user: User,
   isLoggedIn: boolean,
 }
+
+export enum SupportedLanguages {
+  Български,
+  Английски,
+}

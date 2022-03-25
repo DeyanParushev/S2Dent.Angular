@@ -41,9 +41,8 @@
       <button *ngIf="appStore.isLoggedIn" class="btn btn-outline-info btn-sm" (click)="logOut()">Изход</button>
     </div>
     <div class="mx-2">
-      <select class="selectpicker" name="language" (onClick)="changeLanguage($event)">
-        <option value="en">Английски</option>
-        <option value="bg">Български</option>
+      <select class="selectpicker" name="language" [formControl]="languageForm" (change)="changeLanguage()">
+        <option *ngFor="let language of supportedLanguagesStrings; let i = index" [value]="i">{{ language }}</option>
       </select>
     </div>
   </nav>

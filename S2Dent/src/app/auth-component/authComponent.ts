@@ -3,7 +3,7 @@ import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { User } from '../Models/modelInterfaces';
 import { AppStore } from '../store/appStore';
-import { AuthService } from '../utils/authService';
+import { AuthService } from '../services/authService';
 
 @Component({
   selector: 'auth-component',
