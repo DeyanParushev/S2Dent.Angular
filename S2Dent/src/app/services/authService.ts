@@ -1,22 +1,28 @@
 import { Injectable, OnInit } from '@angular/core';
 import { GoogleLoginProvider, SocialAuthService } from 'angularx-social-login';
+import { Observable, Subject } from 'rxjs';
 import { User } from '../Models/modelInterfaces';
 import { AppStore } from '../store/appStore';
 
 @Injectable()
 export class AuthService {
+  private logSuccess: Subject<boolean>;
 
-  constructor(private googleAuth: SocialAuthService, public appStore: AppStore) {}
+  constructor(private googleAuth: SocialAuthService, public appStore: AppStore) {
+    this.logSuccess = new Subject<boolean>();
+  }
 
-  public loginWithGoogle(): boolean {
+  public loginWithGoogle(): Observable<boolean> {
     this.googleAuth.signIn(GoogleLoginProvider.PROVIDER_ID)
       .then((user) => {
         this.appStore.setUser(user as User);
-        return true;
+        this.logSuccess.next(true);
       })
-      .catch((error) => console.log(error));
+      .catch((error) => {
+        this.logSuccess.next(false);
+      });
 
-      return false;
+      return this.logSuccess.asObservable();
   }
 
   public logOutOfGoogle() {

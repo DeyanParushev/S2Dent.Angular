@@ -21,6 +21,7 @@ import { AuthService } from './services/authService';
 import { MobxAngularModule } from "mobx-angular";
 import { AppStore } from './store/appStore';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 const clientId = environment.clientId;
 
@@ -46,6 +47,7 @@ const clientId = environment.clientId;
     SocialLoginModule,
     MobxAngularModule,
     FontAwesomeModule,
+    BrowserAnimationsModule,
   ],
   providers: [
     {
