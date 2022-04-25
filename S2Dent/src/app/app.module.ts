@@ -19,6 +19,7 @@ import { environment } from 'src/environments/environment';
 import { AuthComponent } from './auth-component/authComponent';
 import { AppStore } from './app-store';
 import { AuthService } from './utils/authService';
+import { TreatementsComponent } from './treatements/treatements.component';
 
 const clientId = environment.clientId;
 
@@ -36,6 +37,7 @@ const clientId = environment.clientId;
     NewsComponent,
     FooterComponent,
     AuthComponent,
+    TreatementsComponent,
   ],
   imports: [
     BrowserModule,

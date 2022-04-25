@@ -1,44 +1,42 @@
-<header class="m-0">
-    <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-primary bg-white border-bottom box-shadow">
-        <div class="container justify-content-between">
-            <a class="navbar-brand text-info col-sm-2" asp-controller="Home" asp-action="Index">
-                <a class="nav-link text-primary" routerLink="/home" routerLinkActive="active">
-                    <img src="../../assets/s2dent.png" class="img-fluid" />
+<header class="relative bg-white">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6">
+        <div class="flex justify-between items-center border-b-2 border-gray-100 py-6 md:justify-start md:space-x-6">
+            <div class="flex justify-start sm:w-1 md:flex-1">
+                <a routerLink="/">
+                    <img class="h-8 w-auto sm:h-10" src="../../assets/s2dent.png" alt="">
                 </a>
-            </a>
-            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target=".navbar-collapse"
-                aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
-                <ul class="navbar-nav flex-grow-1">
-                    <li class="nav-item">
-                        <a class="nav-link text-primary" routerLink="/home" routerLinkActive="active">Начало</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link text-primary" routerLink="/team" routerLinkActive="active">Екип</a>
-                    </li>
-                    <li>
-                        <a class="nav-link text-primary" routerLink="/services" routerLinkActive="active">Лечения</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link text-primary" routerLink="/news" routerLinkActive="active">Новини</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link text-primary" routerLink="/testimonials" routerLinkActive="active">Мнения</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link text-primary" routerLink="/gallery" routerLinkActive="active">Галерия</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link text-primary" routerLink="/contacts" routerLinkActive="active">Контакти</a>
-                    </li>
-                </ul>
+            </div>
+
+            <div class="-mr-2 -my-2 md:hidden">
+                <button type="button"
+                    class="bg-white rounded-md p-2 inline-flex items-center justify-center text-gray-400 hover:text-gray-500 hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-indigo-500"
+                    aria-expanded="false">
+                    <span class="sr-only">Open menu</span>
+                    <svg class="h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+                        stroke="currentColor" aria-hidden="true">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                            d="M4 6h16M4 12h16M4 18h16" />
+                    </svg>
+                </button>
+            </div>
+
+            <nav class="hidden md:flex space-x-6">
+                <a routerLink="/" class="text-base font-medium text-gray-500 hover:text-gray-900"> Начало </a>
+                <a routerLink="/team" class="text-base font-medium text-gray-500 hover:text-gray-900"> Екип </a>
+                <a routerLink="/treatments" class="text-base font-medium text-gray-500 hover:text-gray-900"> Лечения
+                </a>
+                <a routerLink="/news" class="text-base font-medium text-gray-500 hover:text-gray-900"> Новини </a>
+                <a routerLink="/testimonials" class="text-base font-medium text-gray-500 hover:text-gray-900"> Мнения
+                </a>
+                <a routerLink="/gallery" class="text-base font-medium text-gray-500 hover:text-gray-900"> Галерия </a>
+                <a routerLink="/contacts" class="text-base font-medium text-gray-500 hover:text-gray-900"> Контакти </a>
+            </nav>
+
+            <div class="hidden md:flex items-center justify-end md:flex-1 lg:w-0">
+                <a href="/login"
+                    class="ml-8 whitespace-nowrap inline-flex items-center justify-center px-4 py-2 border border-transparent rounded-md shadow-sm text-base font-medium text-white bg-indigo-600 hover:bg-indigo-700">
+                    Вход </a>
             </div>
         </div>
-        <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
-            <a *ngIf="!appStore.isLoggedIn" class="btn btn-outline-info" routerLink="/login" routerLinkActive="active">Вход</a>
-            <button *ngIf="appStore.isLoggedIn" class="btn btn-outline-info" (click)="logOut()">Изход</button>
-        </div>
-    </nav>
+    </div>
 </header>

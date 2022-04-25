@@ -8,10 +8,12 @@ import { NewsComponent } from './news/news.component';
 import { ServicesComponent } from './services/services.component';
 import { TeamComponent } from './team/team.component';
 import { TestimonialsComponent } from './testimonials/testimonials.component';
+import { TreatementsComponent } from './treatements/treatements.component';
 
 const routes: Routes = [
   { path: "home", component: HomeComponent },
   { path: "news", component: NewsComponent },
+  { path: "treatments", component: TreatementsComponent },
   { path: "testimonials", component: TestimonialsComponent },
   { path: "gallery", component: GalleryComponent },
   { path: "team", component: TeamComponent },
