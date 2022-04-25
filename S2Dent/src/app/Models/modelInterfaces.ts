@@ -40,7 +40,7 @@ export interface Service {
 
 export interface Testimonial {
     id: string,
-    title: string, 
+    title: string,
     content: string,
     userName: string,
 }
@@ -48,4 +48,14 @@ export interface Testimonial {
 export interface User extends SocialUser {
     rememberMe: boolean,
     username: string,
+}
+
+export interface UserState {
+  user: User,
+  isLoggedIn: boolean,
+}
+
+export enum SupportedLanguages {
+  Български,
+  Английски,
 }

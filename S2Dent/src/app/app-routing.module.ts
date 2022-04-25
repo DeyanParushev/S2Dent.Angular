@@ -5,7 +5,7 @@ import { ContactsComponent } from './contacts/contacts.component';
 import { GalleryComponent } from './gallery/gallery.component';
 import { HomeComponent } from './home/home.component';
 import { NewsComponent } from './news/news.component';
-import { ServicesComponent } from './services/services.component';
+import { ServicesComponent } from './dentalServices/services.component';
 import { TeamComponent } from './team/team.component';
 import { TestimonialsComponent } from './testimonials/testimonials.component';
 import { TreatementsComponent } from './treatements/treatements.component';
@@ -20,7 +20,7 @@ const routes: Routes = [
   { path: "contacts", component: ContactsComponent },
   { path: "services", component: ServicesComponent },
   { path: "register", component: AuthComponent },
-  { path: "login", component: AuthComponent },
+  { path: "login", component: AuthComponent, resolve: { user: AuthResolverService } },
   { path: "logout", component: AuthComponent },
 ];
 

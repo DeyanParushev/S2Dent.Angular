@@ -1,13 +1,12 @@
 // This file can be replaced during build by using the `fileReplacements` array.
 // `ng build` replaces `environment.ts` with `environment.prod.ts`.
 // The list of file replacements can be found in `angular.json`.
-import GoogleAuth from '../app/googleAuth';
+import GoogleAuth from "../app/googleAuth.json";
 
 
 export const environment = {
   production: false,
-  clientId: GoogleAuth.client_id
-  
+  clientId: GoogleAuth.web.client_id
 };
 
 /*
