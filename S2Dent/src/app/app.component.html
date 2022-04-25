@@ -1,10 +1,20 @@
-<div class="relative bg-white">
+<div class="relative bg-white border-b-2 border-stone-300 sticky-top-0">
     <div class="max-w-7xl mx-auto px-4 sm:px-6">
         <header-component></header-component>
-
-        <body class="container">
-            <router-outlet></router-outlet>
-        </body>
-        <footer-component></footer-component>
     </div>
 </div>
+
+<section class="relative bg-white">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6">
+        <body>
+            <router-outlet></router-outlet>
+        </body>
+    </div>
+</section>
+
+
+<section class="relative bg-white border-t-2 border-stone-300">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6">
+        <footer-component></footer-component>
+    </div>
+</section>
