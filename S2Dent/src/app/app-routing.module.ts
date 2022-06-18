@@ -20,7 +20,7 @@ const routes: Routes = [
   { path: "contacts", component: ContactsComponent },
   { path: "services", component: ServicesComponent },
   { path: "register", component: AuthComponent },
-  { path: "login", component: AuthComponent, resolve: { user: AuthResolverService } },
+  { path: "login", component: AuthComponent },
   { path: "logout", component: AuthComponent },
 ];
 

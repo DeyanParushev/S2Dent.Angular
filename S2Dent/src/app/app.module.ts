@@ -23,6 +23,9 @@ import { AppStore } from './store/appStore';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { AuthResolverService } from './auth-component/authResolverService';
 import { TreatementsComponent } from './treatements/treatements.component';
+import {MatProgressBarModule} from '@angular/material/progress-bar';
+import {MatProgressSpinner} from '@angular/material/progress-spinner/progress-spinner';
+import {MatProgressSpinnerModule} from '@angular/material/progress-spinner/progress-spinner-module';
 
 const clientId = environment.clientId;
 
@@ -65,7 +68,10 @@ const clientId = environment.clientId;
     },
     AuthService,
     AppStore,
-    AuthResolverService
+    AuthResolverService,
+    MatProgressBarModule,
+    MatProgressSpinner,
+    MatProgressSpinnerModule
   ],
   bootstrap: [AppComponent]
 })
